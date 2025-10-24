@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>IMS</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#algorithms" class="nav-link">Algorithms</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#demo" class="nav-link">Demo</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#analytics" class="nav-link">Analytics</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#features" class="nav-link">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section active">
+        <div class="container">
+            <div class="hero">
+                <h1 class="hero-title">Inventory Management System</h1>
+                <p class="hero-subtitle">Advanced Distributed Storage with Consistent Hashing & Quadratic Probing</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Consistent Hashing</span>
+                    <span class="tech-tag">Quadratic Probing</span>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#demo" class="btn btn-primary" onclick="showSection('demo')">Try Demo</a>
+                    <a href="#algorithms" class="btn btn-secondary" onclick="showLearnMoreModal()">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="code-block">
+                    <pre><code>// Distributed Storage Simulation
+const inventory = new InventorySystem();
+inventory.addProduct("P001", "Laptop", 50, "Warehouse-A");
+inventory.searchProduct("P001");</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Algorithms Section -->
+    <section id="algorithms" class="section">
+        <div class="container">
+            <h2 class="section-title">Core Algorithms</h2>
+            <div class="algorithms-grid">
+                <div class="algorithm-card">
+                    <h3>Consistent Hashing</h3>
+                    <div class="algorithm-visual">
+                        <div class="hash-ring">
+                            <div class="node" style="--angle: 0deg">Node A</div>
+                            <div class="node" style="--angle: 120deg">Node B</div>
+                            <div class="node" style="--angle: 240deg">Node C</div>
+                            <div class="key" style="--angle: 60deg">Key 1</div>
+                            <div class="key" style="--angle: 180deg">Key 2</div>
+                            <div class="key" style="--angle: 300deg">Key 3</div>
+                        </div>
+                    </div>
+                    <p>Distributes data across multiple storage nodes using a hash ring. Ensures even distribution and easy scaling when nodes are added or removed.</p>
+                    <ul>
+                        <li>Even data distribution</li>
+                        <li>Minimal data movement on node changes</li>
+                        <li>High availability and fault tolerance</li>
+                    </ul>
+                </div>
+                <div class="algorithm-card">
+                    <h3>Quadratic Probing</h3>
+                    <div class="algorithm-visual">
+                        <div class="hash-table">
+                            <div class="table-cell">0</div>
+                            <div class="table-cell filled">P001</div>
+                            <div class="table-cell">2</div>
+                            <div class="table-cell filled">P003</div>
+                            <div class="table-cell">4</div>
+                            <div class="table-cell">5</div>
+                            <div class="table-cell filled">P002</div>
+                            <div class="table-cell">7</div>
+                        </div>
+                    </div>
+                    <p>Handles hash collisions by probing positions using quadratic increments. Reduces clustering compared to linear probing.</p>
+                    <ul>
+                        <li>Formula: h(k, i) = (h(k) + i²) mod m</li>
+                        <li>Reduces primary clustering</li>
+                        <li>Better performance than linear probing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="section">
+        <div class="container">
+            <h2 class="section-title">Interactive Demo</h2>
+            <div class="demo-container">
+                <div class="demo-controls">
+                    <div class="control-group">
+                        <h3>Add Product</h3>
+                        <div class="form-group">
+                            <input type="text" id="productCode" placeholder="Product Code (e.g., P001)" maxlength="10">
+                            <input type="text" id="productName" placeholder="Product Name" maxlength="50">
+                            <input type="number" id="productQuantity" placeholder="Quantity" min="1" max="9999">
+                            <select id="productLocation">
+                                <option value="New York, USA">New York, USA</option>
+                                <option value="London, UK">London, UK</option>
+                                <option value="Tokyo, Japan">Tokyo, Japan</option>
+                                <option value="Sydney, Australia">Sydney, Australia</option>
+                                <option value="Dubai, UAE">Dubai, UAE</option>
+                                <option value="Singapore">Singapore</option>
+                                <option value="Mumbai, India">Mumbai, India</option>
+                                <option value="São Paulo, Brazil">São Paulo, Brazil</option>
+                                <option value="Toronto, Canada">Toronto, Canada</option>
+                                <option value="Berlin, Germany">Berlin, Germany</option>
+                            </select>
+                            <button id="addProductBtn" class="btn btn-primary">Add Product</button>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <h3>Search Product</h3>
+                        <div class="form-group">
+                            <input type="text" id="searchCode" placeholder="Enter Product Code">
+                            <button id="searchBtn" class="btn btn-secondary">Search</button>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <h3>Update Quantity</h3>
+                        <div class="form-group">
+                            <input type="text" id="updateCode" placeholder="Product Code">
+                            <input type="number" id="updateQuantity" placeholder="New Quantity" min="0">
+                            <button id="updateBtn" class="btn btn-secondary">Update</button>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <h3>Delete Product</h3>
+                        <div class="form-group">
+                            <input type="text" id="deleteCode" placeholder="Enter Product Code">
+                            <button id="deleteBtn" class="btn btn-danger">Delete Product</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-display">
+                    <div class="storage-visualization">
+                        <h3>Distributed Storage Visualization</h3>
+                        <div class="warehouse-stats">
+                            <div class="warehouse-summary">
+                                <h4>Warehouse Distribution</h4>
+                                <div id="warehouseSummary" class="summary-grid">
+                                    <!-- Warehouse summary will be dynamically generated -->
+                                </div>
+                            </div>
+                        </div>
+                        <div id="storageNodes" class="storage-nodes">
+                            <!-- Storage nodes will be dynamically generated -->
+                        </div>
+                    </div>
+                    <div class="global-locations">
+                        <h3>Global Distribution</h3>
+                        <div class="world-map-container">
+                            <div id="worldMap" class="world-map">
+                                <!-- World map visualization will be dynamically generated -->
+                            </div>
+                        </div>
+                        <div class="location-stats">
+                            <div id="locationStats" class="location-grid">
+                                <!-- Location statistics will be dynamically generated -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hash-table-display">
+                        <h3>Hash Table (Quadratic Probing)</h3>
+                        <div id="hashTable" class="hash-table-grid">
+                            <!-- Hash table will be dynamically generated -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="demo-stats">
+                <div class="stat-card">
+                    <h4>Total Products</h4>
+                    <span id="totalProducts">0</span>
+                </div>
+                <div class="stat-card">
+                    <h4>Storage Utilization</h4>
+                    <span id="storageUtilization">0%</span>
+                </div>
+                <div class="stat-card">
+                    <h4>Collisions Handled</h4>
+                    <span id="collisionCount">0</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analytics Section -->
+    <section id="analytics" class="section">
+        <div class="container">
+            <h2 class="section-title">Analytics Dashboard</h2>
+            <div class="analytics-grid">
+                <div class="analytics-card">
+                    <h3>Stock Analysis by Year</h3>
+                    <div class="chart-container">
+                        <canvas id="stockChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+                <div class="analytics-card">
+                    <h3>Warehouse Distribution</h3>
+                    <div class="warehouse-chart-container">
+                        <canvas id="warehouseChart" width="400" height="200"></canvas>
+                    </div>
+                    <div class="warehouse-details">
+                        <div id="warehouseDetails" class="warehouse-list">
+                            <!-- Warehouse details will be dynamically generated -->
+                        </div>
+                    </div>
+                </div>
+                <div class="analytics-card">
+                    <h3>Product Timeline</h3>
+                    <div class="timeline-container">
+                        <div id="productTimeline" class="timeline">
+                            <!-- Timeline items will be dynamically generated -->
+                        </div>
+                    </div>
+                </div>
+                <div class="analytics-card">
+                    <h3>Monthly Statistics</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">Products Added This Month</span>
+                            <span id="monthlyAdded" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Products Deleted This Month</span>
+                            <span id="monthlyDeleted" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Average Stock Level</span>
+                            <span id="avgStock" class="stat-value">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="section-title">Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card" onclick="showFeatureDemo('add')">
+                    <div class="feature-icon">📦</div>
+                    <h3>Add Product</h3>
+                    <p>Easily add new products to the inventory with unique codes, names, quantities, and warehouse locations.</p>
+                    <button class="feature-btn">Try This Feature</button>
+                </div>
+                <div class="feature-card" onclick="showFeatureDemo('search')">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Search Product</h3>
+                    <p>Quickly locate products using their unique codes with O(1) average time complexity.</p>
+                    <button class="feature-btn">Try This Feature</button>
+                </div>
+                <div class="feature-card" onclick="showFeatureDemo('update')">
+                    <div class="feature-icon">📊</div>
+                    <h3>Update Quantity</h3>
+                    <p>Modify product quantities in real-time with automatic hash table updates.</p>
+                    <button class="feature-btn">Try This Feature</button>
+                </div>
+                <div class="feature-card" onclick="showFeatureDemo('delete')">
+                    <div class="feature-icon">🗑️</div>
+                    <h3>Delete Product</h3>
+                    <p>Remove products from inventory with confirmation dialog and real-time updates.</p>
+                    <button class="feature-btn">Try This Feature</button>
+                </div>
+                <div class="feature-card" onclick="showFeatureInfo('storage')">
+                    <div class="feature-icon">🏢</div>
+                    <h3>Distributed Storage</h3>
+                    <p>Products are distributed across multiple warehouse nodes using consistent hashing.</p>
+                    <button class="feature-btn">Learn More</button>
+                </div>
+                <div class="feature-card" onclick="showFeatureInfo('collision')">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Collision Handling</h3>
+                    <p>Advanced quadratic probing ensures efficient collision resolution in hash tables.</p>
+                    <button class="feature-btn">Learn More</button>
+                </div>
+                <div class="feature-card" onclick="showFeatureDemo('analytics')">
+                    <div class="feature-icon">📈</div>
+                    <h3>Real-time Stats</h3>
+                    <p>Monitor storage utilization, collision rates, and system performance metrics.</p>
+                    <button class="feature-btn">View Analytics</button>
+                </div>
+                <div class="feature-card" onclick="showFeatureDemo('global')">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Global Distribution</h3>
+                    <p>Track products across 10 major world cities with interactive world map visualization.</p>
+                    <button class="feature-btn">View Map</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Developer</h2>
+            <div class="about-content">
+                <div class="developer-info">
+                    <div class="developer-avatar">
+                        <div class="avatar-placeholder">👨‍💻</div>
+                    </div>
+                    <div class="developer-details">
+                        <h3>Rahaman & Team</h3>
+                        <p class="developer-role">Developer</p>
+                        <div class="developer-info-list">
+                            <div class="info-item">
+                                <strong>Course:</strong> Data Structures & Algorithms
+                            </div>
+                            <div class="info-item">
+                                <strong>Institution:</strong> KG Reddy College of Engineering
+                            </div>
+                            <div class="info-item">
+                                <strong>Email:</strong> rahmansk592@gmail.com
+                            </div>
+                            <div class="info-item">
+                                <strong>Team:</strong> Advanced Systems Development Team
+                            </div>
+                            <div class="info-item">
+                                <strong>Specialization:</strong> Distributed Systems & Hash Tables
+                            </div>
+                        </div>
+                        <div class="developer-skills">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Data Structures</span>
+                            <span class="skill-tag">Algorithms</span>
+                            <span class="skill-tag">Web Development</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-description">
+                    <h3>Project Overview</h3>
+                    <p>This Inventory Management System demonstrates the practical application of advanced data structures and algorithms in web development. The project showcases how consistent hashing can be used for distributed storage systems and how quadratic probing efficiently handles hash collisions.</p>
+                    <p>The implementation combines theoretical computer science concepts with modern web technologies to create an interactive, educational platform that helps users understand complex algorithms through hands-on experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Have questions about the Inventory Management System or want to learn more about the algorithms used? Feel free to reach out!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <strong>Email:</strong> rahmansk592@gmail.com
+                        </div>
+                        <div class="contact-item">
+                            <strong>Project Repository:</strong> github.com/rahaman/inventory-system
+                        </div>
+                        <div class="contact-item">
+                            <strong>LinkedIn:</strong> linkedin.com/in/rahaman-dev
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="contactName" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="contactEmail" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="contactMessage" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Inventory Management System</h3>
+                    <p>Advanced distributed storage with consistent hashing and quadratic probing.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#algorithms">Algorithms</a></li>
+                        <li><a href="#demo">Demo</a></li>
+                        <li><a href="#features">Features</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Technologies</h4>
+                    <ul>
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript ES6+</li>
+                        <li>Consistent Hashing</li>
+                        <li>Quadratic Probing</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Inventory Management System. Developed by Rahaman & Team.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Learn More Modal -->
+    <div id="learnMoreModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>About This Project</h2>
+                <span class="close" onclick="closeLearnMoreModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="explanation-section">
+                    <h3>🎯 Project Overview</h3>
+                    <p>This Inventory Management System demonstrates advanced computer science algorithms in a real-world application. It combines <strong>Consistent Hashing</strong> for distributed storage and <strong>Quadratic Probing</strong> for efficient hash table operations.</p>
+                </div>
+                
+                <div class="explanation-section">
+                    <h3>🔧 Key Technologies</h3>
+                    <ul>
+                        <li><strong>Consistent Hashing:</strong> Distributes products across multiple warehouse nodes evenly</li>
+                        <li><strong>Quadratic Probing:</strong> Handles hash collisions efficiently using quadratic increments</li>
+                        <li><strong>Global Distribution:</strong> Tracks products across 10 major world cities</li>
+                        <li><strong>Real-time Analytics:</strong> Live statistics and visualizations</li>
+                    </ul>
+                </div>
+                
+                <div class="explanation-section">
+                    <h3>🌍 Features</h3>
+                    <ul>
+                        <li><strong>Add Products:</strong> Insert products with codes, names, quantities, and global locations</li>
+                        <li><strong>Search & Update:</strong> Find and modify products with O(1) average time complexity</li>
+                        <li><strong>Delete Products:</strong> Remove products with confirmation dialogs</li>
+                        <li><strong>World Map:</strong> Visual representation of global product distribution</li>
+                        <li><strong>Analytics Dashboard:</strong> Comprehensive statistics and charts</li>
+                        <li><strong>Timeline Tracking:</strong> Monitor when products were added/deleted</li>
+                    </ul>
+                </div>
+                
+                <div class="explanation-section">
+                    <h3>🎓 Educational Value</h3>
+                    <p>This project showcases how theoretical computer science concepts are applied in modern web development. Students can learn about distributed systems, hash tables, and data structures through hands-on interaction.</p>
+                </div>
+                
+                <div class="explanation-section">
+                    <h3>👨‍💻 Developer</h3>
+                    <p><strong>Rahaman & Team</strong> from <strong>KG Reddy College of Engineering</strong><br>
+                    Specializing in Data Structures & Algorithms and Distributed Systems</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="showSection('demo'); closeLearnMoreModal();">Try Demo Now</button>
+                <button class="btn btn-secondary" onclick="showSection('algorithms'); closeLearnMoreModal();">View Algorithms</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
